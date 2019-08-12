@@ -201,7 +201,7 @@ const Days = props => {
                 <td>{new Date(day.date).toLocaleDateString("en-US")}</td>
                 <td>{day.location}</td>
                 <td>{day.owner}</td>
-                <td>In progress</td>
+                <td>{new Date(day.date).getDate() === new Date().getDate() ? 'In progress' : 'Waiting'}</td>
                 <td>
                   <button className="table-button">Details</button>
                   <button className="table-button">Edit</button>

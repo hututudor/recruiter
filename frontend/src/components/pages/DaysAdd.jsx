@@ -155,7 +155,7 @@ const DaysAdd = props => {
       setDisabled(true);
       if (type !== 'intern' && type !== 'full-time') throw new Error('Type');
       if (!owner) return;
-      if (new Date(date).getTime() < new Date().getTime()) throw new Error('Time');
+      if (new Date(date).getDate() < new Date().getDate()) throw new Error('Time');
       if (!location) throw new Error('Location');
 
       const res = await daysActions.add({
