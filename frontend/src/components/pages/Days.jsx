@@ -19,6 +19,7 @@ const Main = styled.div`
     margin-right: 1rem;
     text-transform: uppercase;
     font-weight: 500;
+    cursor: pointer;
 
     ::after {
       display: block;
@@ -63,6 +64,7 @@ const Main = styled.div`
     background: ${colors.grey_100};
     margin-right: 0.2rem;
     transition: all 0.1s;
+    cursor: pointer;
 
     :hover {
       background: ${colors.indigo_700};
@@ -84,6 +86,7 @@ const Main = styled.div`
     color: ${colors.grey_050};
     margin-right: 0.2rem;
     transition: all 0.1s;
+    cursor: pointer;
 
     :hover {
       background: ${colors.grey_700};
@@ -99,9 +102,23 @@ const Main = styled.div`
   .table table thead {
     color: ${colors.grey_300};
   }
-  
+
   .table .table-actions {
     margin: auto;
+  }
+
+  .table button {
+    outline: none;
+    border: none;
+    background: transparent;
+    margin-right: 1rem;
+    color: ${colors.indigo_900};
+    text-transform: uppercase;
+    transition: all 0.2s;
+
+    :hover {
+      cursor: pointer;
+    }
   }
 `;
 
