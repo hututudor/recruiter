@@ -2,7 +2,9 @@
   <dictionary name="tudor">
     <words>
       <w>apigw</w>
+      <w>axios</w>
       <w>dynamodb</w>
+      <w>koln</w>
     </words>
   </dictionary>
 </component>

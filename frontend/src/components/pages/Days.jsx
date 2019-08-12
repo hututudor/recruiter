@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { withRouter } from 'react-router-dom';
 import { colors } from "../../config/variables";
+import * as daysActions from "../../utils/days";
 
 const Main = styled.div`
-  width: 70%;
-  font-size: 1.8rem;
+  width: 80%;
+  font-size: 1.3rem;
 
   .actions .date-filter {
     border-bottom: 1px solid ${colors.grey_900};
@@ -94,16 +96,39 @@ const Main = styled.div`
     }
   }
 
-  .table table {
+  table {
     margin-top: 1rem;
     width: 100%;
+    border-collapse: collapse;
   }
 
-  .table table thead {
+  thead {
     color: ${colors.grey_300};
   }
 
-  .table .table-actions {
+  thead td {
+    border-bottom: 1px solid ${colors.grey_100};
+  }
+
+  tbody td {
+    padding: 1rem 0;
+    background: ${colors.grey_100};
+  }
+
+  tbody td:last-child {
+    text-align: right;
+  }
+
+  tbody td:first-child {
+    text-align: left;
+    padding-left: 1rem;
+  }
+
+  .F td {
+    background: ${colors.grey_200} !important;
+  }
+
+  .table-actions {
     margin: auto;
   }
 
@@ -123,29 +148,20 @@ const Main = styled.div`
 `;
 
 const Days = props => {
-  const [days, setDays] = useState([
-    {
-      id: "1212",
-      type: "Intern",
-      location: "Berlin",
-      owner: "Tudor Hutu",
-      date: "2019-09-14T01:00:00+01:00"
-    },
-    {
-      id: "1213",
-      type: "Full-time",
-      location: "Munchen",
-      owner: "Tudor Hutu",
-      date: "2019-09-14T01:00:00+01:00"
-    },
-    {
-      id: "1214",
-      type: "Intern",
-      location: "Dusseldorf",
-      owner: "Tudor Hutu",
-      date: "2019-09-14T01:00:00+01:00"
+  const [days, setDays] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const res = await daysActions.getAll();
+      setDays(res.data.Items);
+    } catch (e) {
+      console.error(e);
     }
-  ]);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <Main>
@@ -162,7 +178,7 @@ const Days = props => {
           </span>
 
           <span className="right">
-            <button>Add new</button>
+            <button onClick={() => { props.history.push('/days/add') }}>Add new</button>
           </span>
         </div>
       </div>
@@ -180,8 +196,8 @@ const Days = props => {
           </thead>
           <tbody>
             {days.map(day => (
-              <tr>
-                <td className="circle">{day.type.charAt(0).toUpperCase()}</td>
+              <tr key={day.id} className={day.type.charAt(0).toUpperCase()}>
+                <td>{day.type.charAt(0).toUpperCase()}</td>
                 <td>{new Date(day.date).toLocaleDateString("en-US")}</td>
                 <td>{day.location}</td>
                 <td>{day.owner}</td>
@@ -199,4 +215,4 @@ const Days = props => {
   );
 };
 
-export default Days;
+export default withRouter(Days);
