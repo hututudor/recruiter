@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 import { colors } from "../../config/variables";
 import * as daysActions from '../../utils/days'
+import getCurrentDate from "../../utils/date";
 
 const Main = styled.div`
   margin-top: 1rem;
@@ -100,6 +101,11 @@ const Main = styled.div`
         padding: .9rem;
         background: ${colors.grey_050};
       }
+      
+      .invalid {
+        color: ${colors.red_600};
+        border-color: ${colors.red_600};
+      }
     }
     
     span:nth-child(4) {
@@ -148,14 +154,22 @@ const DaysAdd = props => {
   const [date, setDate] = useState('');
   const [location, setLocation] = useState('Berlin');
   const [disabled, setDisabled] = useState(false);
+  const [inputError, setInputError] = useState('');
 
   const submit = async () => {
     try {
       if(disabled) throw new Error('Disabled');
       setDisabled(true);
+      setInputError('');
       if (type !== 'intern' && type !== 'full-time') throw new Error('Type');
-      if (!owner) return;
-      if (new Date(date).getDate() < new Date().getDate()) throw new Error('Time');
+      if (!owner || owner.length < 3) {
+        setInputError('owner');
+        throw new Error('Owner');
+      }
+      if (!date || new Date(date).getTime() < getCurrentDate().getTime()) {
+        setInputError('time');
+        throw new Error('Time');
+      }
       if (!location) throw new Error('Location');
 
       const res = await daysActions.add({
@@ -188,10 +202,10 @@ const DaysAdd = props => {
           <button className={type === 'full-time' ? 'active' : ''} onClick={() => setType('full-time')}>Full-time</button>
         </span>
         <span>
-          <input type="text" placeholder="Owner name" value={owner} onChange={e => setOwner(e.target.value)}/>
+          <input type="text" placeholder="Owner name" className={inputError === 'owner' ? 'invalid' : ''} value={owner} onChange={e => setOwner(e.target.value)}/>
         </span>
         <span>
-          <input type="text" placeholder="Date" value={date} onChange={e => setDate(e.target.value)} />
+          <input type="text" placeholder="Date" className={inputError === 'time' ? 'invalid' : ''} value={date} onChange={e => setDate(e.target.value)} />
         </span>
         <span>
           <select value={location} onChange={e => setLocation(e.target.value)} placeholder="Location">

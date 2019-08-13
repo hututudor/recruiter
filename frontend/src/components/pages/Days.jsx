@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { withRouter } from 'react-router-dom';
 import { colors } from "../../config/variables";
 import * as daysActions from "../../utils/days";
+import getCurrentDate from "../../utils/date";
 
 const Main = styled.div`
   width: 80%;
@@ -155,6 +156,8 @@ const Days = props => {
   const [type, setType] = useState('all');
 
   const fetchData = async () => {
+    console.log(getCurrentDate().getTime());
+
     try {
       const res = await daysActions.getAll();
       setDays(res.data.Items);
@@ -179,8 +182,8 @@ const Days = props => {
       if(type === 'intern' && day.type.charAt(0).toLowerCase() === 'i') return day;
     }).filter(day => {
       if(time === 0) return day;
-      if(time === -1 && new Date(day.date).getDate() > new Date().getDate()) return day;
-      if(time === 1 && new Date(day.date).getDate() === new Date().getDate()) return day;
+      if(time === -1 && new Date(day.date).getTime() > getCurrentDate().getTime()) return day;
+      if(time === 1 && new Date(day.date).getTime() < getCurrentDate().getTime()) return day;
     });
   };
 
@@ -222,7 +225,7 @@ const Days = props => {
                 <td>{new Date(day.date).toLocaleDateString("en-US")}</td>
                 <td>{day.location}</td>
                 <td>{day.owner}</td>
-                <td>{new Date(day.date).getDate() === new Date().getDate() ? 'In progress' : 'Waiting'}</td>
+                <td>{new Date(day.date).getTime() === getCurrentDate().getTime() ? 'In progress' : new Date(day.date).getTime() > getCurrentDate().getTime() ? 'Waiting' : '-'}</td>
                 <td>
                   <button className="table-button">Details</button>
                   <button className="table-button">Edit</button>
