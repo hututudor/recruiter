@@ -70,6 +70,7 @@ const Main = styled.div`
     margin-right: 0.2rem;
     transition: all 0.1s;
     cursor: pointer;
+    font-weight: bold;
 
     :hover {
       background: ${colors.indigo_700};
@@ -92,6 +93,7 @@ const Main = styled.div`
     margin-right: 0.2rem;
     transition: all 0.1s;
     cursor: pointer;
+    font-weight: bold;
 
     :hover {
       background: ${colors.grey_700};
