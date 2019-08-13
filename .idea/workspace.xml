@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30a7ccb3-985f-4abf-bafc-b5505cf62cef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/Days.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/Days.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/DaysAdd.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/DaysAdd.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,23 +48,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/pages/Days.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="203" column="101" selection-start-line="203" selection-start-column="101" selection-end-line="203" selection-end-column="101" />
+            <state relative-caret-position="345">
+              <caret line="214" column="27" selection-start-line="214" selection-start-column="27" selection-end-line="214" selection-end-column="27" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
+                <element signature="e#4#2525#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/pages/DaysAdd.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="157" column="57" selection-start-line="157" selection-start-column="57" selection-end-line="157" selection-end-column="57" />
+            <state relative-caret-position="374">
+              <caret line="160" column="41" lean-forward="true" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -152,8 +151,8 @@
         <option value="$PROJECT_DIR$/frontend/src/App.js" />
         <option value="$PROJECT_DIR$/frontend/src/utils/days.js" />
         <option value="$PROJECT_DIR$/backend/lambda/routes.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/pages/Days.jsx" />
         <option value="$PROJECT_DIR$/frontend/src/components/pages/DaysAdd.jsx" />
+        <option value="$PROJECT_DIR$/frontend/src/components/pages/Days.jsx" />
       </list>
     </option>
   </component>
@@ -283,12 +282,12 @@
       <updated>1565597126207</updated>
       <workItem from="1565597128760" duration="20237000" />
       <workItem from="1565628265003" duration="602000" />
-      <workItem from="1565629376460" duration="198000" />
+      <workItem from="1565629376460" duration="981000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21037000" />
+    <option name="totallyTimeSpent" value="21820000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -485,22 +484,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/pages/Days.jsx">
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/pages/DaysAdd.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="203" column="101" selection-start-line="203" selection-start-column="101" selection-end-line="203" selection-end-column="101" />
+        <state relative-caret-position="374">
+          <caret line="160" column="41" lean-forward="true" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/pages/DaysAdd.jsx">
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/pages/Days.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="157" column="57" selection-start-line="157" selection-start-column="57" selection-end-line="157" selection-end-column="57" />
+        <state relative-caret-position="345">
+          <caret line="214" column="27" selection-start-line="214" selection-start-column="27" selection-end-line="214" selection-end-column="27" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#4#2525#0" />
           </folding>
         </state>
       </provider>

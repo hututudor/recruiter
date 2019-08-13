@@ -42,6 +42,8 @@ const Main = styled.div`
   }
 
   .actions .date-filter button.active {
+    color: ${colors.indigo_700};
+
     ::after {
       display: block;
       content: "";
@@ -149,6 +151,8 @@ const Main = styled.div`
 
 const Days = props => {
   const [days, setDays] = useState([]);
+  const [time, setTime] = useState(1);
+  const [type, setType] = useState('all');
 
   const fetchData = async () => {
     try {
@@ -163,18 +167,35 @@ const Days = props => {
     fetchData();
   }, []);
 
+  const changeTime = n => {
+    if(time === n) setTime(0);
+    else setTime(n);
+  };
+
+  const filteredDays = () => {
+    return days.filter(day => {
+      if(type === 'all') return day;
+      if(type === 'full' && day.type.charAt(0).toLowerCase() === 'f') return day;
+      if(type === 'intern' && day.type.charAt(0).toLowerCase() === 'i') return day;
+    }).filter(day => {
+      if(time === 0) return day;
+      if(time === -1 && new Date(day.date).getDate() > new Date().getDate()) return day;
+      if(time === 1 && new Date(day.date).getDate() === new Date().getDate()) return day;
+    });
+  };
+
   return (
     <Main>
       <div className="actions">
         <div className="date-filter">
-          <button className="active">Upcoming days</button>
-          <button className="">Passed days</button>
+          <button className={time === -1 ? 'active' : ''} onClick={() => changeTime(-1)}>Upcoming days</button>
+          <button className={time === 1 ? 'active' : ''} onClick={() => changeTime(1)}>Passed days</button>
         </div>
         <div className="bar">
           <span className="left">
-            <button className="active">All</button>
-            <button className="">Full-time</button>
-            <button className="">Intern</button>
+            <button className={type === 'all' ? 'active' : ''} onClick={() => setType('all')}>All</button>
+            <button className={type === 'full' ? 'active' : ''} onClick={() => setType('full')}>Full-time</button>
+            <button className={type === 'intern' ? 'active' : ''} onClick={() => setType('intern')}>Intern</button>
           </span>
 
           <span className="right">
@@ -195,7 +216,7 @@ const Days = props => {
             </tr>
           </thead>
           <tbody>
-            {days.map(day => (
+            {filteredDays().map(day => (
               <tr key={day.id} className={day.type.charAt(0).toUpperCase()}>
                 <td>{day.type.charAt(0).toUpperCase()}</td>
                 <td>{new Date(day.date).toLocaleDateString("en-US")}</td>
