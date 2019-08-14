@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
+import AddCandidateModal from "../modals/AddCandidateModal";
 import { colors } from "../../config/variables";
-import * as daysActions from '../../utils/days'
+import * as daysActions from "../../utils/days";
 import getCurrentDate from "../../utils/date";
 
 const Main = styled.div`
@@ -144,71 +145,124 @@ const Main = styled.div`
       color: ${colors.grey_900};
       font-weight: bold;
       border: 2px solid ${colors.indigo_900};
+      cursor: pointer;
+      
+      :hover {
+        background: ${colors.grey_100}
+      }
     }
   }
 `;
 
 const DaysAdd = props => {
-  const [type, setType] = useState('intern');
-  const [owner, setOwner] = useState('');
-  const [date, setDate] = useState('');
-  const [location, setLocation] = useState('Berlin');
+  const [type, setType] = useState("intern");
+  const [owner, setOwner] = useState("");
+  const [date, setDate] = useState("");
+  const [location, setLocation] = useState("Berlin");
+  const [candidates, setCandidates] = useState([]);
   const [disabled, setDisabled] = useState(false);
-  const [inputError, setInputError] = useState('');
+  const [inputError, setInputError] = useState("");
+  const [modal, setModal] = useState({ open: false, type: 'morning' });
 
   const submit = async () => {
     try {
-      if(disabled) throw new Error('Disabled');
+      if (disabled) throw new Error("Disabled");
       setDisabled(true);
-      setInputError('');
-      if (type !== 'intern' && type !== 'full-time') throw new Error('Type');
+      setInputError("");
+      if (type !== "intern" && type !== "full-time") throw new Error("Type");
       if (!owner || owner.length < 3) {
-        setInputError('owner');
-        throw new Error('Owner');
+        setInputError("owner");
+        throw new Error("Owner");
       }
       if (!date || new Date(date).getTime() < getCurrentDate().getTime()) {
-        setInputError('time');
-        throw new Error('Time');
+        setInputError("time");
+        throw new Error("Time");
       }
-      if (!location) throw new Error('Location');
+      if (!location) throw new Error("Location");
 
       const res = await daysActions.add({
         type,
         owner,
         date,
-        location
+        location,
+        candidates
       });
 
-      props.history.push('/days');
+      props.history.push("/days");
     } catch (e) {
       console.error(e);
     }
     setDisabled(false);
   };
 
+  const openModal = type => {
+    setModal({
+      open: true,
+      type
+    })
+  };
+
+  const closeModal = () => {
+    setModal({
+      open: false,
+      type: 'morning'
+    });
+  };
+
+  const addCandidate = data => {
+    setCandidates([...candidates, data]);
+  };
+
   return (
     <Main>
+      <AddCandidateModal modal={modal} closeModal={closeModal} addCandidate={addCandidate} />
       <div className="actions">
         <h1>Add Recruiting Day</h1>
         <span>
-          <button onClick={() => props.history.push('/days')}>Back</button>
+          <button onClick={() => props.history.push("/days")}>Back</button>
           <button onClick={() => submit()}>Save</button>
           <button>Publish</button>
         </span>
       </div>
       <div className="form">
         <span>
-          <button className={type === 'intern' ? 'active' : ''} onClick={() => setType('intern')}>Intern</button>
-          <button className={type === 'full-time' ? 'active' : ''} onClick={() => setType('full-time')}>Full-time</button>
+          <button
+            className={type === "intern" ? "active" : ""}
+            onClick={() => setType("intern")}
+          >
+            Intern
+          </button>
+          <button
+            className={type === "full-time" ? "active" : ""}
+            onClick={() => setType("full-time")}
+          >
+            Full-time
+          </button>
         </span>
         <span>
-          <input type="text" placeholder="Owner name" className={inputError === 'owner' ? 'invalid' : ''} value={owner} onChange={e => setOwner(e.target.value)}/>
+          <input
+            type="text"
+            placeholder="Owner name"
+            className={inputError === "owner" ? "invalid" : ""}
+            value={owner}
+            onChange={e => setOwner(e.target.value)}
+          />
         </span>
         <span>
-          <input type="text" placeholder="Date" className={inputError === 'time' ? 'invalid' : ''} value={date} onChange={e => setDate(e.target.value)} />
+          <input
+            type="text"
+            placeholder="Date"
+            className={inputError === "time" ? "invalid" : ""}
+            value={date}
+            onChange={e => setDate(e.target.value)}
+          />
         </span>
         <span>
-          <select value={location} onChange={e => setLocation(e.target.value)} placeholder="Location">
+          <select
+            value={location}
+            onChange={e => setLocation(e.target.value)}
+            placeholder="Location"
+          >
             <option value="Berlin">Berlin</option>
             <option value="Frankfurt">Frankfurt</option>
             <option value="Koln">Koln</option>
@@ -219,11 +273,11 @@ const DaysAdd = props => {
       </div>
       <div className="candidates">
         <h2>Morning</h2>
-        <button>Add candidate</button>
+        <button onClick={() => openModal('morning')}>Add candidate</button>
       </div>
       <div className="candidates">
         <h2>Afternoon</h2>
-        <button>Add candidate</button>
+        <button onClick={() => openModal('afternoon')}>Add candidate</button>
       </div>
     </Main>
   );
