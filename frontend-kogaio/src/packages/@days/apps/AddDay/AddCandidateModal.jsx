@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Space, Box, Typography, Flex, Button, Input } from '@kogaio';
+import { Modal, Space, Box, Typography, Flex, Button, Input, Dropdown } from '@kogaio';
 
 const AddCandidateModal = ({ hideModal, isShown, type, add }) => {
   const [first, setFirst] = useState('');
@@ -45,12 +45,17 @@ const AddCandidateModal = ({ hideModal, isShown, type, add }) => {
               value={last}
               onChange={e => setLast(e.target.value)}
             />
-            <Input
-              type="text"
-              placeholder="Gender"
+            <Dropdown
               value={gender}
-              onChange={e => setGender(e.target.value)}
-            />
+              onChange={e => setGender(e)}
+            >
+              <Dropdown.Option value="Male">
+                Male
+              </Dropdown.Option>
+              <Dropdown.Option value="Female">
+                Female
+              </Dropdown.Option>
+            </Dropdown>
             <Input
               type="text"
               placeholder="Education"

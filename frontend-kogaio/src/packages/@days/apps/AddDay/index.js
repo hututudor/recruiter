@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-import { Typography, Button, Flex, Input, Dropdown, Space } from '@kogaio';
+import { Typography, Button, Flex, Input, Dropdown, Space, Icon } from '@kogaio';
 
 import AddCandidateModal from './AddCandidateModal';
 import CandidateTable from './CandidateTable';
@@ -198,6 +198,7 @@ const AddDay = props => {
                   placeholder="Owner name"
                   type="text"
                   value={owner}
+                  icon="person"
                   onChange={e => setOwner(e.target.value)}
                   error={inputError === 'owner'}
                   noBottomSpace

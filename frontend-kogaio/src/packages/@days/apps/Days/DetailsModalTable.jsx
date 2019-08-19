@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { themeGet } from '@kogaio';
 
 const Table = styled.table`
-  min-width: 30rem;
+  min-width: 40rem;
   width: 100%;
   border-collapse: collapse;
 
