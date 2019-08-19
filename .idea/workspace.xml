@@ -19,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/pages/DaysAdd.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="185" column="13" lean-forward="true" selection-start-line="185" selection-start-column="13" selection-end-line="185" selection-end-column="13" />
+            <state relative-caret-position="412">
+              <caret line="170" column="24" lean-forward="true" selection-start-line="170" selection-start-column="24" selection-end-line="170" selection-end-column="24" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -31,10 +31,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/modals/AddCandidateModal.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
+            <state relative-caret-position="545">
               <caret line="148" column="63" selection-start-line="148" selection-start-column="63" selection-end-line="148" selection-end-column="63" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
@@ -78,8 +78,8 @@
         <option value="$PROJECT_DIR$/frontend/public/index.html" />
         <option value="$PROJECT_DIR$/frontend/package.json" />
         <option value="$PROJECT_DIR$/backend/lambda/controllers/days.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/pages/DaysAdd.jsx" />
         <option value="$PROJECT_DIR$/frontend/src/components/modals/AddCandidateModal.jsx" />
+        <option value="$PROJECT_DIR$/frontend/src/components/pages/DaysAdd.jsx" />
       </list>
     </option>
   </component>
@@ -205,12 +205,12 @@
       <workItem from="1565597128760" duration="20237000" />
       <workItem from="1565628265003" duration="602000" />
       <workItem from="1565629376460" duration="4428000" />
-      <workItem from="1565762130318" duration="4414000" />
+      <workItem from="1565762130318" duration="4978000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29681000" />
+    <option name="totallyTimeSpent" value="30245000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -434,22 +434,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/pages/DaysAdd.jsx">
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/modals/AddCandidateModal.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="185" column="13" lean-forward="true" selection-start-line="185" selection-start-column="13" selection-end-line="185" selection-end-column="13" />
+        <state relative-caret-position="545">
+          <caret line="148" column="63" selection-start-line="148" selection-start-column="63" selection-end-line="148" selection-end-column="63" />
           <folding>
-            <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/modals/AddCandidateModal.jsx">
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/pages/DaysAdd.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="148" column="63" selection-start-line="148" selection-start-column="63" selection-end-line="148" selection-end-column="63" />
+        <state relative-caret-position="412">
+          <caret line="170" column="24" lean-forward="true" selection-start-line="170" selection-start-column="24" selection-end-line="170" selection-end-column="24" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
