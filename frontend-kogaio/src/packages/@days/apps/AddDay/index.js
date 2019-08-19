@@ -198,7 +198,7 @@ const AddDay = props => {
                   placeholder="Owner name"
                   type="text"
                   value={owner}
-                  icon="person"
+                  icLeft="person"
                   onChange={e => setOwner(e.target.value)}
                   error={inputError === 'owner'}
                   noBottomSpace
@@ -210,6 +210,7 @@ const AddDay = props => {
                   placeholder="Date"
                   type="text"
                   value={date}
+                  icLeft="calendar_today"
                   onChange={e => setDate(e.target.value)}
                   error={inputError === 'date'}
                   noBottomSpace
