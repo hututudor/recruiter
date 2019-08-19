@@ -55,7 +55,7 @@ const Tab = styled.table`
   }
 `;
 
-const Table = ({ days }) => {
+const Table = ({ days, showDetails }) => {
   const currentDate = useDate();
 
   const getStatus = date => {
@@ -94,6 +94,7 @@ const Table = ({ days }) => {
                   className="button"
                   colors="basic-button"
                   title="Details"
+                  onClick={() => showDetails(day)}
                 />
                 <Button
                   width={0.15}
@@ -111,7 +112,8 @@ const Table = ({ days }) => {
 };
 
 Table.propTypes = {
-  days: PropTypes.array
+  days: PropTypes.array,
+  showDetails: PropTypes.func
 };
 
 export default Table;

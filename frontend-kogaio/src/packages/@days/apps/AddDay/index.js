@@ -74,22 +74,7 @@ const AddDay = props => {
   const [disabled, setDisabled] = useState(false);
   const [inputError, setInputError] = useState('');
   const [modal, setModal] = useState({ open: false });
-  const [candidates, setCandidates] = useState([
-    {
-      type: 'morning',
-      firstName: 'Tudor',
-      lastName: 'Hutu',
-      gender: 'male',
-      education: 'none'
-    },
-    {
-      type: 'morning',
-      firstName: 'Tudor',
-      lastName: 'Hutu',
-      gender: 'male',
-      education: 'none'
-    }
-  ]);
+  const [candidates, setCandidates] = useState([]);
 
   const currentDate = useDate();
 

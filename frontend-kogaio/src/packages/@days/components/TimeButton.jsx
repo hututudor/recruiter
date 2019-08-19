@@ -18,6 +18,7 @@ const Button = styled.button`
     content: '';
     display: block;
     padding-top: 4px;
+    padding-bottom: 5px;
     border-bottom: 3px solid transparent;
   }
   
